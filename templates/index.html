@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Predicción de Precio de Circonitas</title>
+    <title>Predicción de Precio de zirconias</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='esty.css') }}">
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -32,9 +32,11 @@
                 .then(response => response.json())
                 .then(data => {
                     // Mostrar el precio predicho y el nearby_price en el resultado
-                    document.getElementById('resultado').innerHTML = `
-                    <p>El precio predicho es: $${(data.nearby_price !== null ? data.nearby_price : data.prediction).toFixed(2)}</p>
-                `;
+                    const resultadoDiv = document.getElementById('resultado');
+                    resultadoDiv.innerHTML = `
+                        <p>El precio predicho es: $${(data.nearby_price !== null ? data.nearby_price : data.prediction).toFixed(2)}</p>
+                    `;
+                    resultadoDiv.style.display = 'block';
                 })
                 .catch(error => {
                     console.error('Error al enviar solicitud:', error);
@@ -45,21 +47,23 @@
     </script>
 </head>
 <body>
-    <h2>Ingrese los datos de la circonita:</h2>
+    
     <form id="predict-form" method="post">
+        <p class="desc">modelo predictivo del precio de la piedra</p>
+        <h3>Ingrese los datos de la zirconia:</h3>
         <div class="form-row">
             <div class="form-column">
-                <label for="carat">Carat:</label>
+                <label for="carat">Quilates:</label>
                 <input type="text" id="carat" name="carat" required>
             </div>
             <div class="form-column">
-                <label for="cut">Cut:</label>
+                <label for="cut">Corte:</label>
                 <select id="cut" name="cut" required>
                     <option value="Ideal">Ideal</option>
                     <option value="Premium">Premium</option>
-                    <option value="Very Good">Very Good</option>
-                    <option value="Good">Good</option>
-                    <option value="Fair">Fair</option>
+                    <option value="Very Good">Muy Bueno</option>
+                    <option value="Good">Bueno</option>
+                    <option value="Fair">Regular</option>
                 </select>
             </div>
         </div>
@@ -68,62 +72,63 @@
             <div class="form-column">
                 <label for="color">Color:</label>
                 <select id="color" name="color" required>
-                    <option value="D">D</option>
-                    <option value="E">E</option>
-                    <option value="F">F</option>
-                    <option value="G">G</option>
-                    <option value="H">H</option>
-                    <option value="I">I</option>
-                    <option value="J">J</option>
+                    <option value="D">D (Incoloro)</option>
+                    <option value="E">E (Incoloro)</option>
+                    <option value="F">F (Incoloro)</option>
+                    <option value="G">G (Casi incoloro)</option>
+                    <option value="H">H (Casi incoloro)</option>
+                    <option value="I">I (Casi incoloro)</option>
+                    <option value="J">J (Casi incoloro)</option>
                 </select>
             </div>
             <div class="form-column">
-                <label for="clarity">Clarity:</label>
+                <label for="clarity">Claridad:</label>
                 <select id="clarity" name="clarity" required>
-                    <option value="IF">IF</option>
-                    <option value="VVS1">VVS1</option>
-                    <option value="VVS2">VVS2</option>
-                    <option value="VS1">VS1</option>
-                    <option value="VS2">VS2</option>
-                    <option value="SI1">SI1</option>
-                    <option value="SI2">SI2</option>
-                    <option value="I1">I1</option>
+                    <option value="IF">IF (Internamente impecable)</option>
+                    <option value="VVS1">VVS1 (Muy, muy ligeramente incluido)</option>
+                    <option value="VVS2">VVS2 (Muy, muy ligeramente incluido)</option>
+                    <option value="VS1">VS1 (Muy ligeramente incluido)</option>
+                    <option value="VS2">VS2 (Muy ligeramente incluido)</option>
+                    <option value="SI1">SI1 (Ligeramente incluido)</option>
+                    <option value="SI2">SI2 (Ligeramente incluido)</option>
+                    <option value="I1">I1 (Incluido)</option>
                 </select>
             </div>
         </div>
 
         <div class="form-row">
             <div class="form-column">
-                <label for="depth">Depth:</label>
+                <label for="depth">Profundidad:</label>
                 <input type="text" id="depth" name="depth" required>
             </div>
             <div class="form-column">
-                <label for="table">Table:</label>
+                <label for="table">Tabla:</label>
                 <input type="text" id="table" name="table" required>
             </div>
         </div>
 
         <div class="form-row">
             <div class="form-column">
-                <label for="x">X:</label>
+                <label for="x">Dimensión X:</label>
                 <input type="text" id="x" name="x" required>
             </div>
             <div class="form-column">
-                <label for="y">Y:</label>
+                <label for="y">Dimensión Y:</label>
                 <input type="text" id="y" name="y" required>
             </div>
         </div>
 
         <div class="form-row">
             <div class="form-column">
-                <label for="z">Z:</label>
+                <label for="z">Dimensión Z:</label>
                 <input type="text" id="z" name="z" required>
+            </div>
+            <div class="form-column">
+                <div id="resultado" style="display: none;"></div>
             </div>
         </div>
 
         <input type="submit" value="Predecir">
     </form>
-    
-    <div id="resultado"></div>
 </body>
 </html>
