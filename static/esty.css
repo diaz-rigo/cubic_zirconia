@@ -3,38 +3,52 @@ body {
     background-color: #f0f0f0;
     margin: 0;
     padding: 20px;
+    background-image: url('https://tienda.montepiedad.com.mx/cdn/shop/articles/la-zirconia.jpg?v=1663027237');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 h2 {
     text-align: center;
     color: #333;
     margin-bottom: 20px;
+    background-color: rgba(255, 255, 255, 0.8); /* Fondo semitransparente para mejor contraste */
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 8px;
 }
 
 form {
-    max-width: 500px;
+    max-width: 600px;
     margin: 0 auto;
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.9); /* Fondo semitransparente */
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    display: grid;
+    gap: 20px;
 }
 
-.form-group {
-    margin-bottom: 15px;
+.form-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.form-column {
+    display: flex;
+    flex-direction: column;
 }
 
 label {
     font-weight: bold;
-    display: block;
     margin-bottom: 8px;
 }
 
 input[type="text"],
 select {
-    width: calc(100% - 20px);
     padding: 8px 10px;
-    margin-bottom: 15px;
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
@@ -48,7 +62,7 @@ select:focus {
 }
 
 input[type="submit"] {
-    width: 100%;
+    grid-column: 1 / -1;
     background-color: #4CAF50;
     color: white;
     padding: 12px 20px;
@@ -66,7 +80,7 @@ input[type="submit"]:hover {
 #resultado {
     margin-top: 20px;
     padding: 10px;
-    background-color: #f7f7f7;
+    background-color: rgba(255, 255, 255, 0.9); /* Fondo semitransparente */
     border-radius: 4px;
     box-shadow: 0 0 5px rgba(0,0,0,0.1);
 }
