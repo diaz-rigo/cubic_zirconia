@@ -1,0 +1,193 @@
+[
+    {
+        "label": "random",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "random",
+        "description": "random",
+        "detail": "random",
+        "documentation": {}
+    },
+    {
+        "label": "Flask",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "request",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "jsonify",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "render_template",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "pandas",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "pandas",
+        "description": "pandas",
+        "detail": "pandas",
+        "documentation": {}
+    },
+    {
+        "label": "RandomForestRegressor",
+        "importPath": "sklearn.ensemble",
+        "description": "sklearn.ensemble",
+        "isExtraImport": true,
+        "detail": "sklearn.ensemble",
+        "documentation": {}
+    },
+    {
+        "label": "OneHotEncoder",
+        "importPath": "sklearn.preprocessing",
+        "description": "sklearn.preprocessing",
+        "isExtraImport": true,
+        "detail": "sklearn.preprocessing",
+        "documentation": {}
+    },
+    {
+        "label": "ColumnTransformer",
+        "importPath": "sklearn.compose",
+        "description": "sklearn.compose",
+        "isExtraImport": true,
+        "detail": "sklearn.compose",
+        "documentation": {}
+    },
+    {
+        "label": "index",
+        "kind": 2,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "def index():\n    return render_template('index.html')\n@app.route('/predict', methods=['POST'])\ndef predict():\n    # Verificar que los datos se están enviando correctamente\n    if request.is_json:\n        data = request.get_json()\n    else:\n        data = request.form.to_dict()\n    # Convertir los valores de cadena a números flotantes y limpiar los datos",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "predict",
+        "kind": 2,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "def predict():\n    # Verificar que los datos se están enviando correctamente\n    if request.is_json:\n        data = request.get_json()\n    else:\n        data = request.form.to_dict()\n    # Convertir los valores de cadena a números flotantes y limpiar los datos\n    try:\n        carat = float(data['carat'].strip())  # Eliminar espacios adicionales\n        depth = float(data['depth'].strip())",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "app",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "app = Flask(__name__)\n# Datos de ejemplo para simular la predicción aproximada\ndatos_ejemplo = [\n    {\"carat\": 0.30, \"cut\": \"Ideal\", \"color\": \"E\", \"clarity\": \"SI1\", \"depth\": 62.1, \"table\": 58.0, \"x\": 4.27, \"y\": 4.29, \"z\": 2.66, \"price\": 499},\n    {\"carat\": 0.33, \"cut\": \"Premium\", \"color\": \"G\", \"clarity\": \"IF\", \"depth\": 60.8, \"table\": 58.0, \"x\": 4.42, \"y\": 4.46, \"z\": 2.70, \"price\": 984},\n    {\"carat\": 0.90, \"cut\": \"Very Good\", \"color\": \"E\", \"clarity\": \"VVS2\", \"depth\": 62.2, \"table\": 60.0, \"x\": 6.04, \"y\": 6.12, \"z\": 3.78, \"price\": 6289},\n    {\"carat\": 0.42, \"cut\": \"Ideal\", \"color\": \"F\", \"clarity\": \"VS1\", \"depth\": 61.6, \"table\": 56.0, \"x\": 4.82, \"y\": 4.80, \"z\": 2.96, \"price\": 1082},\n    {\"carat\": 0.31, \"cut\": \"Ideal\", \"color\": \"F\", \"clarity\": \"VVS1\", \"depth\": 60.4, \"table\": 59.0, \"x\": 4.35, \"y\": 4.43, \"z\": 2.65, \"price\": 779}\n]\n# Cargar datos",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "datos_ejemplo",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "datos_ejemplo = [\n    {\"carat\": 0.30, \"cut\": \"Ideal\", \"color\": \"E\", \"clarity\": \"SI1\", \"depth\": 62.1, \"table\": 58.0, \"x\": 4.27, \"y\": 4.29, \"z\": 2.66, \"price\": 499},\n    {\"carat\": 0.33, \"cut\": \"Premium\", \"color\": \"G\", \"clarity\": \"IF\", \"depth\": 60.8, \"table\": 58.0, \"x\": 4.42, \"y\": 4.46, \"z\": 2.70, \"price\": 984},\n    {\"carat\": 0.90, \"cut\": \"Very Good\", \"color\": \"E\", \"clarity\": \"VVS2\", \"depth\": 62.2, \"table\": 60.0, \"x\": 6.04, \"y\": 6.12, \"z\": 3.78, \"price\": 6289},\n    {\"carat\": 0.42, \"cut\": \"Ideal\", \"color\": \"F\", \"clarity\": \"VS1\", \"depth\": 61.6, \"table\": 56.0, \"x\": 4.82, \"y\": 4.80, \"z\": 2.96, \"price\": 1082},\n    {\"carat\": 0.31, \"cut\": \"Ideal\", \"color\": \"F\", \"clarity\": \"VVS1\", \"depth\": 60.4, \"table\": 59.0, \"x\": 4.35, \"y\": 4.43, \"z\": 2.65, \"price\": 779}\n]\n# Cargar datos\ndata_df = pd.read_csv(\"https://raw.githubusercontent.com/meander02/dtaset/main/cubic_zirconia.csv\")\n# Definir las categorías posibles para cada característica categórica",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "data_df",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "data_df = pd.read_csv(\"https://raw.githubusercontent.com/meander02/dtaset/main/cubic_zirconia.csv\")\n# Definir las categorías posibles para cada característica categórica\ncuts = ['Fair', 'Good', 'Very Good', 'Premium', 'Ideal']\ncolors = ['J', 'I', 'D', 'H', 'F', 'E', 'G']\nclarities = ['I1', 'IF', 'VVS1', 'VVS2', 'VS1', 'SI2', 'VS2', 'SI1']\n# Configurar ColumnTransformer para aplicar OneHotEncoder solo a las columnas categóricas\npreprocessor = ColumnTransformer(\n    transformers=[\n        ('cat', OneHotEncoder(categories=[cuts, colors, clarities]), ['cut', 'color', 'clarity'])\n    ], remainder='passthrough'",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "cuts",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "cuts = ['Fair', 'Good', 'Very Good', 'Premium', 'Ideal']\ncolors = ['J', 'I', 'D', 'H', 'F', 'E', 'G']\nclarities = ['I1', 'IF', 'VVS1', 'VVS2', 'VS1', 'SI2', 'VS2', 'SI1']\n# Configurar ColumnTransformer para aplicar OneHotEncoder solo a las columnas categóricas\npreprocessor = ColumnTransformer(\n    transformers=[\n        ('cat', OneHotEncoder(categories=[cuts, colors, clarities]), ['cut', 'color', 'clarity'])\n    ], remainder='passthrough'\n)\n# Entrenar el preprocesador con los datos de ejemplo",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "colors",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "colors = ['J', 'I', 'D', 'H', 'F', 'E', 'G']\nclarities = ['I1', 'IF', 'VVS1', 'VVS2', 'VS1', 'SI2', 'VS2', 'SI1']\n# Configurar ColumnTransformer para aplicar OneHotEncoder solo a las columnas categóricas\npreprocessor = ColumnTransformer(\n    transformers=[\n        ('cat', OneHotEncoder(categories=[cuts, colors, clarities]), ['cut', 'color', 'clarity'])\n    ], remainder='passthrough'\n)\n# Entrenar el preprocesador con los datos de ejemplo\ndf = pd.DataFrame(datos_ejemplo)",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "clarities",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "clarities = ['I1', 'IF', 'VVS1', 'VVS2', 'VS1', 'SI2', 'VS2', 'SI1']\n# Configurar ColumnTransformer para aplicar OneHotEncoder solo a las columnas categóricas\npreprocessor = ColumnTransformer(\n    transformers=[\n        ('cat', OneHotEncoder(categories=[cuts, colors, clarities]), ['cut', 'color', 'clarity'])\n    ], remainder='passthrough'\n)\n# Entrenar el preprocesador con los datos de ejemplo\ndf = pd.DataFrame(datos_ejemplo)\nX_transformed = preprocessor.fit_transform(df[['cut', 'color', 'clarity']])",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "preprocessor",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "preprocessor = ColumnTransformer(\n    transformers=[\n        ('cat', OneHotEncoder(categories=[cuts, colors, clarities]), ['cut', 'color', 'clarity'])\n    ], remainder='passthrough'\n)\n# Entrenar el preprocesador con los datos de ejemplo\ndf = pd.DataFrame(datos_ejemplo)\nX_transformed = preprocessor.fit_transform(df[['cut', 'color', 'clarity']])\ny = df['price']\n# Entrenar el modelo (ejemplo con RandomForestRegressor)",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "df",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "df = pd.DataFrame(datos_ejemplo)\nX_transformed = preprocessor.fit_transform(df[['cut', 'color', 'clarity']])\ny = df['price']\n# Entrenar el modelo (ejemplo con RandomForestRegressor)\nmodel = RandomForestRegressor()\nmodel.fit(X_transformed, y)\n# Ruta principal para mostrar el formulario\n@app.route('/')\ndef index():\n    return render_template('index.html')",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "X_transformed",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "X_transformed = preprocessor.fit_transform(df[['cut', 'color', 'clarity']])\ny = df['price']\n# Entrenar el modelo (ejemplo con RandomForestRegressor)\nmodel = RandomForestRegressor()\nmodel.fit(X_transformed, y)\n# Ruta principal para mostrar el formulario\n@app.route('/')\ndef index():\n    return render_template('index.html')\n@app.route('/predict', methods=['POST'])",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "y",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "y = df['price']\n# Entrenar el modelo (ejemplo con RandomForestRegressor)\nmodel = RandomForestRegressor()\nmodel.fit(X_transformed, y)\n# Ruta principal para mostrar el formulario\n@app.route('/')\ndef index():\n    return render_template('index.html')\n@app.route('/predict', methods=['POST'])\ndef predict():",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "model",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "model = RandomForestRegressor()\nmodel.fit(X_transformed, y)\n# Ruta principal para mostrar el formulario\n@app.route('/')\ndef index():\n    return render_template('index.html')\n@app.route('/predict', methods=['POST'])\ndef predict():\n    # Verificar que los datos se están enviando correctamente\n    if request.is_json:",
+        "detail": "app",
+        "documentation": {}
+    }
+]
